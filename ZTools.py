@@ -287,7 +287,6 @@ def code():
 
     main()
     #Main code, obviously asks user input for what they want to achieve.
-code()
 API_KEY = 'sk_4077wTzgi7BR880P61gK6SCro5Q87dBA'
 #Hyper's authentication API key, user will enter their license key at line 222 and will be pinged as part of the payload. A status code will be returned to determine if the code is real or not. (Through Python requests)
 def log(content):
@@ -304,8 +303,7 @@ def get_license(license_key):
 
     return None
 
-key = input("Key: ")
-license_data = get_license('{}'.format(key))
+license_data = get_license('{}'.format(lines[0]))
 if license_data:
     if license_data.get('metadata') != {}:
         print('License is already in use on another machine!')
