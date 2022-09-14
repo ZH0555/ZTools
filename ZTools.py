@@ -62,7 +62,7 @@ rpc.update(
     details="zzzz",
     start=int(time.time()),
 )
-#Discord rich presence, client_id depends on user's discord ID. Can be modified easily
+#Discord rich presence, client_id does not need to be changed
 
 
 names = ["jay", "jim", "roy", "axel", "billy", "charlie", "jax", "gina", "paul",
@@ -88,9 +88,10 @@ def code():
     catchall = lines[2]
     postcode = lines[3]
     address = lines[4]
+    city = input("Enter city: ")
     nLength = 2
     num = ''.join(random.choice(numbers) for i in range(nLength))
-    email = str(fName)+str(lName)+str(num)+'@'+catchall #chooses random two numbers and the randomly chosen first and last name, then attaches to catchall
+    email = str(fName)+str(lName)+str(num)+'@'+catchall 
 
     aLength = 3
     abc = ''.join(random.choice(letters) for i in range(aLength))
@@ -138,7 +139,6 @@ def code():
         select3.select_by_visible_text('2000')
         driver.find_element(By.XPATH, '//*[@id="register"]').click()
         time.sleep(10)
-        #Selects values through XPATH and does something, very useful and accurate compared to using CSS selector.
 
     def three():
         link = 'https://www.three.co.uk/Support/Free_SIM/Order'
@@ -159,7 +159,7 @@ def code():
         driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'})
         wait = WebDriverWait(driver, 20)
         action = ActionChains(driver)
-        driver.get(link) #opens link (three)
+        driver.get(link)
 
 
         fName = random.choice(names)
@@ -167,20 +167,27 @@ def code():
 
         select = Select(driver.find_element(By.XPATH, '//*[@id="1400662678121"]/label[8]/span/select')) #used for selecting value of exact address
 
-
+        time.sleep(2)
         driver.find_element(By.XPATH, '//*[@id="1400662678121"]/label[1]/span/input').send_keys(fName)
+        print(Fore.GREEN + "Entering F name.." + "\n")
         driver.find_element(By.XPATH, '//*[@id="1400662678121"]/label[2]/span/input').send_keys(lName)
+        print(Fore.GREEN + "Entering L name.." + "\n")
         driver.find_element(By.XPATH, '//*[@id="1400662678121"]/label[4]/span/input').send_keys(email)
+        print(Fore.GREEN + "Entering first confirmation email.." + "\n"
         driver.find_element(By.XPATH, '//*[@id="1400662678121"]/label[5]/span/input').send_keys(email)
+        print(Fore.GREEN + "Entering confirmation email.." + "\n")
         driver.find_element(By.XPATH, '//*[@id="1400662678121"]/label[7]/span/input').send_keys(postcode)
+        print(Fore.GREEN + "Entering postcode.." + "\n")
         time.sleep(5)
         driver.find_element(By.XPATH, '//*[@id="1400662678121"]/button[1]').click()
         time.sleep(5)
         driver.find_element(By.XPATH, '//*[@id="1400662678121"]/label[8]/span/select').click()
         time.sleep(5)
         select.select_by_visible_text(address)
+        print(Fore.GREEN + "Selecting address.." + "\n")
         elem = WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, '//*[@id="1400662678121"]/button[2]')))
         elem.click()
+        print(Fore.GREEN + "Success" + "\n")
         time.sleep(10)
 
     def lebara():
@@ -201,14 +208,14 @@ def code():
         driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'})
         wait = WebDriverWait(driver, 20)
         action = ActionChains(driver)
-        driver.get(link) #opens link (three)
+        driver.get(link)
 
         fName = random.choice(names)
         lName = random.choice(names)
 
         nLength = 2
         num = ''.join(random.choice(numbers) for i in range(nLength))
-        email = str(fName)+str(lName)+str(num)+"@"+lines[2] #chooses random two numbers and the randomly chosen first and last name, then attaches to catchall
+        email = str(fName)+str(lName)+str(num)+"@"+lines[2]
 
         aLength = 3
         abc = ''.join(random.choice(letters) for i in range(aLength))
@@ -220,28 +227,29 @@ def code():
 
         time.sleep(2)
         driver.find_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click()
-        print(Fore.GREEN + "Accepting cookie popup...")
+        print(Fore.GREEN + "Accepting cookie popup..." + "\n")
         time.sleep(2)
         driver.find_element(By.XPATH, '/html/body/main/div[6]/div[5]/div/div/a').click()
         time.sleep(2)
-        print(Fore.GREEN + "Entering email")
+        print(Fore.GREEN + "Entering email" + "\n")
         driver.find_element(By.XPATH, '//*[@id="register.email"]').send_keys(email)
         time.sleep(2)
-        print(Fore.GREEN + "Entering name")
+        print(Fore.GREEN + "Entering name" + "\n")
         driver.find_element(By.XPATH, '//*[@id="register.firstName"]').send_keys(fName)
         time.sleep(2)
-        print(Fore.GREEN + "Entering last name")
+        print(Fore.GREEN + "Entering last name" + "\n")
         driver.find_element(By.XPATH, '//*[@id="register.lastName"]').send_keys(lName)
         time.sleep(2)
         driver.find_element(By.XPATH, '//*[@id="checkoutRegisterAddressForm"]/div[5]/div[2]/div[2]/a[2]').click()
         time.sleep(2)
-        print(Fore.GREEN + "Entering jigged address")
+        print(Fore.GREEN + "Entering address" + "\n")
         driver.find_element(By.XPATH, '//*[@id="addressLine1"]').send_keys(jigged)
         time.sleep(2)
-        print(Fore.GREEN + "Entering postcode")
+        print(Fore.GREEN + "Entering postcode" + "\n")
         driver.find_element(By.XPATH, '//*[@id="postCode"]').send_keys(lines[3])
         time.sleep(2)
-        driver.find_element(By.XPATH, '//*[@id="city"]').send_keys('London')
+        driver.find_element(By.XPATH, '//*[@id="city"]').send_keys(city)
+        print(Fore.GREEN + "Entering city" + "\n")
         time.sleep(2)
         driver.find_element(By.XPATH, '//*[@id="submitOrderBtn"]').click()
         print(Fore.GREEN + "Success!")
@@ -254,7 +262,7 @@ def code():
         count = int(input("Enter how many times you'd like to run it: "))
         i = 0
         if choice == 1:
-            while i<count:
+            while i<count+1:
                 asos()
                 i+=1
             retry = input("Run bot again? Y/N: ").lower()
@@ -263,7 +271,7 @@ def code():
             else:
                 quit()
         elif choice == 2:
-            while i<count:
+            while i<count+1:
                 three()
                 i+=1
             retry = input("Run bot again? Y/N: ").lower()
@@ -272,7 +280,7 @@ def code():
             else:
                 quit()
         elif choice == 3:
-            while i<count:
+            while i<count+1:
                 lebara()
                 i+=1
             retry = input("Run bot again? Y/N: ").lower()
@@ -288,7 +296,7 @@ def code():
     main()
     #Main code, obviously asks user input for what they want to achieve.
 API_KEY = 'sk_4077wTzgi7BR880P61gK6SCro5Q87dBA'
-#Hyper's authentication API key, user will enter their license key at line 222 and will be pinged as part of the payload. A status code will be returned to determine if the code is real or not. (Through Python requests)
+#Hyper's authentication API key, user will enter their license key at line 222 and will be pinged as part of the payload. Response will be returned to determine the status of the inputted key.
 def log(content):
     print('[{}] {}'.format(datetime.utcnow(), content))
 
@@ -302,8 +310,8 @@ def get_license(license_key):
         return req.json()
 
     return None
-
-license_data = get_license('{}'.format(lines[0]))
+key = input("Enter key: ")
+license_data = get_license('{}'.format(key)
 if license_data:
     if license_data.get('metadata') != {}:
         print('License is already in use on another machine!')
