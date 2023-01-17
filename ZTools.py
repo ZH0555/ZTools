@@ -262,7 +262,7 @@ def code():
         count = int(input("Enter how many times you'd like to run it: "))
         i = 0
         if choice == 1:
-            while i<count+1:
+            for i in range(1,count+1):
                 asos()
                 i+=1
             retry = input("Run bot again? Y/N: ").lower()
@@ -271,7 +271,7 @@ def code():
             else:
                 quit()
         elif choice == 2:
-            while i<count+1:
+            for i in range(1,count+1):
                 three()
                 i+=1
             retry = input("Run bot again? Y/N: ").lower()
@@ -280,7 +280,7 @@ def code():
             else:
                 quit()
         elif choice == 3:
-            while i<count+1:
+            for i in range(1,count+1):
                 lebara()
                 i+=1
             retry = input("Run bot again? Y/N: ").lower()
@@ -296,7 +296,7 @@ def code():
     main()
     #Main code, obviously asks user input for what they want to achieve.
 API_KEY = 'sk_4077wTzgi7BR880P61gK6SCro5Q87dBA'
-#Hyper's authentication API key, user will enter their license key at line 222 and will be pinged as part of the payload. Response will be returned to determine the status of the inputted key.
+#Hyper's authentication API key, user will enter their license key at line 222 and will be sent as part of the payload. Response will be returned to determine the status of the inputted key.
 def log(content):
     print('[{}] {}'.format(datetime.utcnow(), content))
 
