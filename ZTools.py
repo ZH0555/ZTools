@@ -58,11 +58,10 @@ rpc.update(
     large_image="ztools",
     large_text="Generating millions of accounts.",
     state="zzzz",
-    buttons = [{'label':'Twitter',"url":"https://twitter.com/zh5555_"}],
+    buttons = [{'label':'Twitter',"url":"https://twitter.com/"}],
     details="zzzz",
     start=int(time.time()),
 )
-#Discord rich presence, client_id does not need to be changed
 
 
 names = ["jay", "jim", "roy", "axel", "billy", "charlie", "jax", "gina", "paul",
@@ -119,8 +118,7 @@ def code():
         driver.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
         driver.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36'})
         #Additions for all these arguments - Selenium is easily detected by many websites due to $cdc in chromedriver.exe. Using HxD Hex editor, I have removed this $cdc hex and replaced
-        #it with another value to replace it.
-        #Selenium is all based on the chrome tab, meaning that it will be very resource heavy at times when multiple tabs are opened to perform a certain task.
+        #it with another value.
         action = ActionChains(driver)
         fName = random.choice(names)
         lName = random.choice(names)
@@ -142,7 +140,6 @@ def code():
 
     def three():
         link = 'https://www.three.co.uk/Support/Free_SIM/Order'
-
         options = Options()
         options.add_argument("--disable-gpu")
         options.add_argument("--disable-extensions")
@@ -294,7 +291,6 @@ def code():
 
 
     main()
-    #Main code, obviously asks user input for what they want to achieve.
 API_KEY = 'sk_4077wTzgi7BR880P61gK6SCro5Q87dBA'
 #Hyper's authentication API key, user will enter their license key at line 222 and will be sent as part of the payload. Response will be returned to determine the status of the inputted key.
 def log(content):
