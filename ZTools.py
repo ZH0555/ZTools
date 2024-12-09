@@ -5,7 +5,7 @@ import re
 import uuid
 from datetime import datetime
 import requests
-
+#
 with open("settings.txt") as text:
     lines = []
     for line in text:
