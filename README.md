@@ -1,5 +1,5 @@
 # ZTools
-Automation tool through the use of Selenium.
+Automation tool through the use of Selenium
 
 
 * Fill out required information in settings.txt
